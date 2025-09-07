@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lesson_attachments', function(Blueprint $table){
-            $table->id();
-            $table->foreignId('lesson_id')->constrained('course_lessons')->cascadeOnDelete();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('lesson_id')->constrained('course_lessons')->cascadeOnDelete();
             $table->enum('type',['video','pdf','ppt','doc','audio']);
             $table->string('file_url');
             $table->integer('duration')->nullable();

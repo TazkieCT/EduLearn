@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
-            $table->id();
+        Schema::create('courses', function(Blueprint $table){
+            $table->uuid('id')->primary();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->foreignUuid('category_id')->constrained('course_categories')->cascadeOnDelete();
+            $table->decimal('price',10,2)->default(0);
+            $table->string('thumbnail')->nullable();
+            $table->string('promo_video')->nullable();
+            $table->enum('status',['draft','published'])->default('draft');
+            $table->foreignUuid('created_by')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

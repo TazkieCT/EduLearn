@@ -25,30 +25,9 @@ class UsersTableSeeder extends Seeder
             'zip'            => '12345',
             'place_of_birth' => 'Jakarta',
             'status'         => 'active',
-            'email'          => 'tazkie@example.com',
+            'email'          => 'innerjtct@gmail.com',
             'role'           => 'student',
             'password'       => Hash::make('password'),
         ]);
-
-        // Tambahan user dummy
-        for ($i = 1; $i <= 5; $i++) {
-            User::create([
-                'id'             => (string) Str::uuid(),
-                'first_name'     => 'User',
-                'last_name'      => "Dummy{$i}",
-                'gender'         => $i % 2 === 0 ? 'male' : 'female',
-                'dob'            => '1995-01-01',
-                'profile_image'  => null,
-                'address'        => "Alamat Dummy {$i}",
-                'city'           => 'Bandung',
-                'country'        => 'Indonesia',
-                'zip'            => '40123',
-                'place_of_birth' => 'Bandung',
-                'status'         => 'active',
-                'email'          => "dummy{$i}@gmail.com",
-                'role'           => 'student',
-                'password'       => Hash::make('password'),
-            ]);
-        }
     }
 }

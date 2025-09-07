@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollments', function(Blueprint $table){
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
+        Schema::create('enrollments', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('course_id')->constrained('courses')->cascadeOnDelete();
             $table->timestamp('enrolled_at')->useCurrent();
             $table->float('progress')->default(0);
             $table->timestamp('completed_at')->nullable();
-            $table->enum('status',['active','completed','dropped'])->default('active');
+            $table->enum('status', ['active','completed','dropped'])->default('active');
         });
     }
 

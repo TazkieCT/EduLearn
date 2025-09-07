@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_progress', function(Blueprint $table){
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('lesson_id')->constrained('course_lessons')->cascadeOnDelete();
+        Schema::create('user_progress', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('lesson_id')->constrained('course_lessons')->cascadeOnDelete();
             $table->integer('last_watched_second')->default(0);
             $table->boolean('is_completed')->default(false);
             $table->timestamps();

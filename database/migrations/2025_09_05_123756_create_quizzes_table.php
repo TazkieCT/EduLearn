@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quizzes', function(Blueprint $table){
-            $table->id();
-            $table->foreignId('lesson_id')->nullable()->constrained('course_lessons')->nullOnDelete();
-            $table->foreignId('section_id')->nullable()->constrained('course_sections')->nullOnDelete();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('lesson_id')->nullable()->constrained('course_lessons')->nullOnDelete();
+            $table->foreignUuid('section_id')->nullable()->constrained('course_sections')->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('type',['quiz','exam','final_test']);
