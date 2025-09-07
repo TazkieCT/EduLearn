@@ -33,7 +33,7 @@
         </div>
 
         <!-- Forgot Password Link -->
-        <div class="mt-4 text-right">
+        <div class="mt-2 text-right">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
@@ -51,7 +51,7 @@
         <!-- Register Link -->
         <div class="mt-4 text-center text-sm">
             <span class="text-gray-600">Don't have an account? </span>
-            <a class="text-indigo-600 hover:text-indigo-900 underline" href="{{ route('register') }}">
+            <a class="text-gray-600 hover:text-gray-900 underline" href="{{ route('register') }}">
                 {{ __('Register') }}
             </a>
         </div>
