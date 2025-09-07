@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use App\Models\CourseCategory;
 
-class CourseCategoriesTableSeeder extends Seeder
+class CourseCategoriesSeeder extends Seeder
 {
     public function run(): void
     {
