@@ -28,11 +28,10 @@
             <p class="text-gray-400">Phone: +62 123 4567 890</p>
 
             <!-- Social Links -->
-            <div class="mt-4 flex space-x-4">
-                <a href="#" class="hover:text-white transition">Facebook</a>
-                <a href="#" class="hover:text-white transition">Twitter</a>
-                <a href="#" class="hover:text-white transition">Instagram</a>
+            <div class="mt-4">
+                <x-social-links />
             </div>
+
         </div>
 
     </div>
