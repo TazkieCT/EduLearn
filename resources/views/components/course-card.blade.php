@@ -1,5 +1,7 @@
-<div x-data="{ loading: true }" x-init="setTimeout(() => loading = false, 1000)" class="bg-white rounded-lg shadow p-4 hover:shadow-md transition">
-    
+<div x-data="{ loading: true }" 
+     x-init="setTimeout(() => loading = false, 1000)" 
+     class="bg-white rounded-lg shadow p-4 transition hover:shadow-lg">
+
     <!-- Skeleton Loader -->
     <template x-if="loading">
         <div class="space-y-2 animate-pulse">
@@ -12,10 +14,14 @@
 
     <!-- Actual Content -->
     <template x-if="!loading">
-        <div>
-            <div class="h-40 bg-gray-100 rounded-lg overflow-hidden mb-3 flex items-center justify-center">
+        <div x-transition:enter="transition ease-out duration-500"
+             x-transition:enter-start="opacity-0 translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0">
+
+            <div class="h-40 bg-gray-100 rounded-lg overflow-hidden mb-3 flex items-center justify-center relative group">
                 @if($course->thumbnail)
-                    <img src="{{ asset('storage/' . $course->thumbnail) }}" class="w-full h-full object-cover">
+                    <img src="{{ asset('storage/' . $course->thumbnail) }}" 
+                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 @else
                     <span class="text-gray-400">No Image</span>
                 @endif
