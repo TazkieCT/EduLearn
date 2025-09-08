@@ -19,6 +19,14 @@ class ProfileUpdateRequest extends FormRequest
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore(auth()->id())],
+            'gender' => ['nullable', 'in:male,female'],
+            'dob' => ['nullable', 'date'],
+            'place_of_birth' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'country' => ['nullable', 'string', 'max:255'],
+            'zip' => ['nullable', 'string', 'max:20'],
+            'profile_image' => ['nullable', 'image', 'max:2048'], // max 2MB
         ];
     }
 }

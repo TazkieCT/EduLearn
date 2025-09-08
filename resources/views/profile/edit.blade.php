@@ -36,6 +36,10 @@
                         <h3 class="text-lg font-semibold text-gray-800">Profile Information</h3>
                         <p class="text-sm text-gray-600">Update your account's profile information, email, and profile picture.</p>
 
+                        @if(session('status') === 'profile-updated')
+                            <div class="text-green-600 mb-4">Profile updated successfully!</div>
+                        @endif
+
                         <form method="post" action="{{ route('profile.update') }}" class="space-y-6" enctype="multipart/form-data">
                             @csrf
                             @method('patch')
@@ -43,33 +47,38 @@
                             <div class="flex flex-col sm:flex-row sm:space-x-6">
                                 <!-- Profile Image -->
                                 <div class="flex-shrink-0 mb-4 sm:mb-0">
-                                    <div class="relative" x-data="{ loading: false, imageUrl: '{{ $user->profile_image ?? '' }}' }">
-                                        <div class="w-24 h-24 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
-                                            <template x-if="loading">
-                                                <div class="absolute inset-0 flex items-center justify-center">
-                                                    <div class="w-12 h-12 border-4 border-indigo-400 border-dashed rounded-full animate-spin"></div>
-                                                </div>
-                                            </template>
+                                    <div class="relative" x-data="{ 
+                                        loading: false, 
+                                        imageUrl: '{{ $user->profile_image ? asset("storage/profile_images/" . $user->profile_image) : asset("images/default-profile.png") }}' 
+                                    }">
+                                    <div class="w-24 h-24 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-300">
+                                        <template x-if="loading">
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-12 h-12 border-4 border-indigo-400 border-dashed rounded-full animate-spin"></div>
+                                            </div>
+                                        </template>
 
-                                            <img :src="imageUrl" alt="Profile Picture" class="w-full h-full object-cover" :class="{ 'opacity-50': loading }">
-                                        </div>
-
-                                        <input type="file" name="profile_image" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                            @change="
-                                                const file = $event.target.files[0];
-                                                if(file) {
-                                                    loading = true;
-                                                    const reader = new FileReader();
-                                                    reader.onload = e => {
-                                                        imageUrl = e.target.result;
-                                                        setTimeout(() => loading = false, 800);
-                                                    }
-                                                    reader.readAsDataURL(file);
-                                                }
-                                            "
-                                        >
+                                        <img :src="imageUrl" alt="Profile Picture" class="w-full h-full object-cover" :class="{ 'opacity-50': loading }">
                                     </div>
+
+                                    <input type="file" name="profile_image" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                        @change="
+                                            const file = $event.target.files[0];
+                                            if(file) {
+                                                loading = true;
+                                                const reader = new FileReader();
+                                                reader.onload = e => {
+                                                    imageUrl = e.target.result;
+                                                    setTimeout(() => loading = false, 800);
+                                                }
+                                                reader.readAsDataURL(file);
+                                            }
+                                        "
+                                    >
                                 </div>
+
+                                </div>
+
 
                                 <!-- Input Fields -->
                                 <div class="flex-1 space-y-4">
