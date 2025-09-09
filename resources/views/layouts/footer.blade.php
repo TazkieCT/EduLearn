@@ -26,12 +26,6 @@
             <p class="text-gray-400">123 Learning St., Knowledge City</p>
             <p class="text-gray-400">Email: info@example.com</p>
             <p class="text-gray-400">Phone: +62 123 4567 890</p>
-
-            <!-- Social Links -->
-            <div class="mt-4">
-                <x-social-links />
-            </div>
-
         </div>
 
     </div>
