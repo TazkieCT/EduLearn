@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-gray-50">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-16">
 
             <!-- Hero Section -->
@@ -20,15 +20,24 @@
 
             <!-- Mission Section -->
             <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <img src="{{ asset('images/our-mission.jpg') }}" alt="Our Mission" class="rounded-lg shadow-md w-full">
+                <div class="relative w-full">
+                    <!-- Skeleton -->
+                    <div class="absolute inset-0 bg-gray-400 animate-pulse rounded-lg shadow-md"></div>
+                    
+                    <!-- Image -->
+                    <img 
+                        src="{{ asset('images/our-mission.jpg') }}" 
+                        alt="Our Mission" 
+                        class="rounded-lg shadow-md w-full relative z-10"
+                        onload="this.previousElementSibling.style.display='none'"
+                    >
                 </div>
                 <div>
                     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h2>
                     <p class="text-gray-600">
                         We believe every person deserves the opportunity to grow in line with their own potential. 
                         That's why our mission is to deliver programs, materials, and support that strengthen 
-                        communities and help individuals build the skills they need to succeed—whether technical, 
+                        communities and help individuals build the skills they need to succeed whether technical, 
                         professional, or personal. Together, we can shape a future where no one is left behind.
                     </p>
                 </div>
@@ -36,14 +45,14 @@
 
             <!-- Call to Action -->
             <section class="text-center bg-indigo-600 text-white rounded-lg p-12">
-                <h2 class="text-3xl font-bold mb-4">Be Part of the Change</h2>
+                <h2 class="text-3xl font-bold mb-4">Start Your Learning Journey</h2>
                 <p class="mb-6 max-w-xl mx-auto">
-                    Join us in building stronger, more resilient communities. Whether through learning, 
-                    collaboration, or contribution, your role matters in creating opportunities 
-                    for everyone to grow and shine.
+                    Unlock new skills, explore fresh ideas, and grow at your own pace. 
+                    Whether you’re here to study, upskill, or discover something new, 
+                    this is the place to begin your journey.
                 </p>
                 <a href="#" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
-                    Get Involved
+                    Start Learning
                 </a>
             </section>
 

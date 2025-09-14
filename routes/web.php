@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseCategoryController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Courses
-    Route::get('/courses', [ProfileController::class, 'index'])->name('courses.index');
-    Route::get('/courses/{course}', [ProfileController::class, 'show'])->name('courses.show');
+    Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
 
     // Categories
     Route::get('/categories', [CourseCategoryController::class, 'index'])->name('categories.index');

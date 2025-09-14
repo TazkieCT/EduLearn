@@ -1,6 +1,6 @@
 <div x-data="{ loading: true }" 
-     x-init="setTimeout(() => loading = false, 1000)" 
-     class="bg-white rounded-lg shadow p-4 transition hover:shadow-lg">
+     x-init="setTimeout(() => loading = false, 100)" 
+     class="bg-white rounded-lg shadow p-4 transition hover:shadow-lg cursor-pointer">
 
     <!-- Skeleton Loader -->
     <template x-if="loading">
@@ -14,9 +14,11 @@
 
     <!-- Actual Content -->
     <template x-if="!loading">
-        <div x-transition:enter="transition ease-out duration-500"
-             x-transition:enter-start="opacity-0 translate-y-2"
-             x-transition:enter-end="opacity-100 translate-y-0">
+        <a href="{{ route('courses.show', $course->id) }}"
+           class="block"
+           x-transition:enter="transition ease-out duration-500"
+           x-transition:enter-start="opacity-0 translate-y-2"
+           x-transition:enter-end="opacity-100 translate-y-0">
 
             <div class="h-40 bg-gray-100 rounded-lg overflow-hidden mb-3 flex items-center justify-center relative group">
                 @if($course->thumbnail)
@@ -30,10 +32,6 @@
             <h4 class="font-bold text-lg">{{ $course->title }}</h4>
             <p class="text-sm text-gray-500">{{ $course->category->name ?? 'Uncategorized' }}</p>
             <p class="text-gray-700 mt-2">{{ Str::limit($course->description, 100) }}</p>
-            <a href="{{ route('courses.show', $course->id) }}"
-               class="mt-3 inline-block text-indigo-600 hover:text-indigo-900 underline">
-                View Details
-            </a>
-        </div>
+        </a>
     </template>
 </div>

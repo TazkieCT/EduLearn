@@ -7,7 +7,7 @@
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8" x-data="{ tab: 'profile', direction: 'left' }">
 
             <!-- Tabs -->
-            {{-- <div class="bg-white rounded-lg shadow p-4 mb-6 flex space-x-4">
+            <div class="bg-white rounded-lg shadow p-4 mb-6 flex space-x-4">
                 <button @click="direction = tab === 'profile' ? 'left' : 'right'; tab = 'profile'" 
                         :class="{ 'border-b-2 border-indigo-500 font-semibold': tab === 'profile' }"
                         class="px-3 py-2 text-gray-700 hover:text-gray-900 focus:outline-none">
@@ -25,10 +25,10 @@
                         class="px-3 py-2 text-gray-700 hover:text-gray-900 focus:outline-none">
                     Delete Account
                 </button>
-            </div> --}}
+            </div>
 
             <!-- Tab Contents -->
-            {{-- <div class="relative">
+            <div class="relative">
 
                 <!-- Profile Info -->
                 <div x-show="tab === 'profile'" x-cloak>
@@ -221,23 +221,6 @@
                     </div>
                 </div>
 
-            </div> --}}
-
-            @include('profile.partials.tabs')
-
-            <!-- Tab Contents -->
-            <div class="relative">
-                <div x-show="tab === 'profile'" x-cloak>
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-
-                <div x-show="tab === 'password'" x-cloak>
-                    @include('profile.partials.update-password-form')
-                </div>
-
-                <div x-show="tab === 'delete'" x-cloak>
-                    @include('profile.partials.delete-account-form')
-                </div>
             </div>
         </div>
     </div>

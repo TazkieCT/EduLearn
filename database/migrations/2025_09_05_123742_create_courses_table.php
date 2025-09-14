@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
-            $table->foreignUuid('category_id')->constrained('course_categories')->cascadeOnDelete();
+            $table->foreignUuid('subcategory_id')->constrained('course_subcategories')->cascadeOnDelete();
             $table->decimal('price',10,2)->default(0);
             $table->string('thumbnail')->nullable();
             $table->string('promo_video')->nullable();
