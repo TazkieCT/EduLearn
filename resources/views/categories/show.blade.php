@@ -15,11 +15,7 @@
                     @if($sub->courses->count())
                         <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             @foreach($sub->courses as $course)
-                                <a href="{{ route('courses.show', $course) }}" 
-                                   class="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
-                                    <h4 class="text-md font-semibold text-gray-800">{{ $course->title }}</h4>
-                                    <p class="text-sm text-gray-600">{{ Str::limit($course->description, 80) }}</p>
-                                </a>
+                                <x-course-card :course="$course" />
                             @endforeach
                         </div>
                     @else
