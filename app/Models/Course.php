@@ -25,15 +25,18 @@ class Course extends Model
         'created_by',
     ];
 
-    // Relationship: Course belongs to a subcategory
     public function subcategory()
     {
         return $this->belongsTo(CourseSubcategory::class, 'subcategory_id');
     }
 
-    // Relationship: Course created by a user
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

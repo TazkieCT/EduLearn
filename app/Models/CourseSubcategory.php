@@ -20,8 +20,18 @@ class CourseSubcategory extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'subcategory_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(CourseCategory::class, 'category_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

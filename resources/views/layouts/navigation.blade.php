@@ -19,23 +19,41 @@
 
                     <!-- Courses Dropdown -->
                     <div x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" class="relative">
-                        <button class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none">
+                        <a href="{{ route('categories.index') }}" 
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none">
                             {{ __('Courses') }}
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                        </button>
+                        </a>
 
-                        <div x-show="open" x-transition class="absolute mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                            @foreach($categories as $category)
-                                <x-dropdown-link :href="route('categories.show', $category->id)">
-                                    {{ $category->name }}
-                                </x-dropdown-link>
-                            @endforeach
+                        <div x-show="open" x-transition 
+                            class="absolute mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-4 w-auto">
+                            <div class="flex space-x-8">
+                                @foreach($categories as $category)
+                                    <div class="min-w-[150px]">
+                                        <!-- Link to category -->
+                                        <x-dropdown-link :href="route('categories.show', $category)">
+                                            <span class="font-semibold">{{ $category->name }}</span>
+                                        </x-dropdown-link>
+
+                                        <!-- List subcategories -->
+                                        <div class="mt-2">
+                                            @foreach($category->subcategories as $sub)
+                                                <x-dropdown-link class="pl-2 text-sm text-gray-600 hover:text-gray-900" 
+                                                    :href="route('subcategories.show', [$category->slug, $sub->slug])">
+                                                    {{ $sub->name }}
+                                                </x-dropdown-link>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+
 
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}

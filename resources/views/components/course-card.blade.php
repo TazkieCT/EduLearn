@@ -14,7 +14,7 @@
 
     <!-- Actual Content -->
     <template x-if="!loading">
-        <a href="{{ route('courses.show', $course->id) }}"
+        <a href="{{ route('courses.show', $course) }}"
            class="block"
            x-transition:enter="transition ease-out duration-500"
            x-transition:enter-start="opacity-0 translate-y-2"
@@ -30,7 +30,7 @@
             </div>
 
             <h4 class="font-bold text-lg">{{ $course->title }}</h4>
-            <p class="text-sm text-gray-500">{{ $course->category->name ?? 'Uncategorized' }}</p>
+            <p class="text-sm text-gray-500">{{ $course->subcategory->name ?? 'Uncategorized' }}</p>
             <p class="text-gray-700 mt-2">{{ Str::limit($course->description, 100) }}</p>
         </a>
     </template>

@@ -24,7 +24,7 @@
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900">{{ $course->title }}</h1>
                     <p class="text-sm text-gray-500">
-                        {{ $course->category->name ?? 'Uncategorized' }} • 
+                        {{ $course->subcategory->name ?? 'Uncategorized' }} • 
                         by {{ $course->creator->name ?? 'Unknown' }}
                     </p>
                 </div>
@@ -39,18 +39,13 @@
                     <span class="text-lg font-semibold text-indigo-600">
                         {{ $course->price ? 'Rp' . number_format($course->price, 0, ',', '.') : 'Free' }}
                     </span>
-
-                    <span class="px-3 py-1 text-xs rounded-full 
-                        {{ $course->status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' }}">
-                        {{ ucfirst($course->status) }}
-                    </span>
                 </div>
 
                 <!-- Back -->
                 <div class="pt-6">
                     <a href="{{ route('courses.index') }}" 
                        class="inline-block text-indigo-600 hover:text-indigo-900 underline">
-                        ← Back to Courses
+                        Back to Courses
                     </a>
                 </div>
             </div>

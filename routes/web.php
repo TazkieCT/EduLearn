@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseCategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseSubcategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,9 @@ Route::middleware('auth')->group(function () {
     // Categories
     Route::get('/categories', [CourseCategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/{courseCategory}', [CourseCategoryController::class, 'show'])->name('categories.show');
+    
+    // Subcategories
+    Route::get('/categories/{courseCategory}/{courseSubcategory}', [CourseSubcategoryController::class, 'show'])->name('subcategories.show');
 });
 
 require __DIR__.'/auth.php';

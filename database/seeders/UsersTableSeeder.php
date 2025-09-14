@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'status'         => 'active',
             'email'          => 'innerjtct@gmail.com',
             'role'           => 'student',
-            'password'       => Hash::make('password'),
+            'password'       => Hash::make('test1234'),
         ]);
     }
 }

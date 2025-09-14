@@ -9,7 +9,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::with('category', 'creator')
+        $courses = Course::with('subcategory', 'creator')
             ->latest()
             ->paginate(12);
         
@@ -20,7 +20,7 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         // Load relationships for safety (category + creator)
-        $course->load('category', 'creator');
+        $course->load('subcategory', 'creator');
 
         return view('courses.show', compact('course'));
     }
