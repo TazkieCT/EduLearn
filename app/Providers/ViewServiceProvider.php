@@ -25,7 +25,6 @@ class ViewServiceProvider extends ServiceProvider
         // Mengirim variable $categories ke semua view
         View::composer('*', function ($view) {
             $view->with('categories', CourseCategory::all());
-            $view->with('courses', Course::all());
         });
     }
 }
