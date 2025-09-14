@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory()->count(5)->create();
+        User::factory()->count(5)->create();
 
-        // $this->call([
-        //     UsersTableSeeder::class,
-        //     CourseCategoriesSeeder::class,
-        // ]);
+        $this->call([
+            UsersTableSeeder::class,
+            CourseCategoriesSeeder::class,
+        ]);
 
         Course::factory()->count(10)->create();
     }
