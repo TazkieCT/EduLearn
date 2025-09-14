@@ -17,7 +17,7 @@ class Course extends Model
         'title',
         'slug',
         'description',
-        'category_id',
+        'subcategory_id',
         'price',
         'thumbnail',
         'promo_video',
@@ -25,10 +25,10 @@ class Course extends Model
         'created_by',
     ];
 
-    // Relationship: Course belongs to a category
-    public function category()
+    // Relationship: Course belongs to a subcategory
+    public function subcategory()
     {
-        return $this->belongsTo(CourseCategory::class, 'category_id');
+        return $this->belongsTo(CourseSubcategory::class, 'subcategory_id');
     }
 
     // Relationship: Course created by a user

@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\CourseCategory;
+use App\Models\CourseSubcategory;
 use App\Models\User;
 
 /**
@@ -22,18 +22,18 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         $title = $this->faker->sentence(3);
-        $category = CourseCategory::inRandomOrder()->first(); // Pick random category
+        $subcategory = CourseSubcategory::inRandomOrder()->first(); // Pick random subcategory
         $creator = User::inRandomOrder()->first(); // Pick random user
 
         return [
-            'id' => Str::uuid(),
+            'id' => (string) Str::uuid(),
             'title' => $title,
             'slug' => Str::slug($title) . '-' . Str::random(5),
             'description' => $this->faker->paragraph(3),
-            'category_id' => $category ? $category->id : null,
+            'subcategory_id' => $subcategory ? $subcategory->id : null,
             'price' => $this->faker->randomFloat(2, 0, 500),
             'thumbnail' => 'https://picsum.photos/400/200?random=' . rand(1,1000),
-            'promo_video' => null, // Some dummy video url if needed
+            'promo_video' => null,
             'status' => $this->faker->randomElement(['draft', 'published']),
             'created_by' => $creator ? $creator->id : null,
         ];

@@ -12,29 +12,19 @@ class CourseCategoriesSeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Web Development',
-                'slug' => 'web-development',
-                'description' => 'Belajar HTML, CSS, JavaScript, dan framework modern.',
-            ],
-            [
-                'name' => 'Mobile Development',
-                'slug' => 'mobile-development',
-                'description' => 'Belajar membuat aplikasi Android & iOS dengan Flutter atau Kotlin.',
-            ],
-            [
-                'name' => 'Data Science',
-                'slug' => 'data-science',
-                'description' => 'Pelajari Python, machine learning, dan analisis data.',
-            ],
-            [
-                'name' => 'UI/UX Design',
-                'slug' => 'ui-ux-design',
-                'description' => 'Desain pengalaman pengguna dan antarmuka yang menarik.',
+                'name' => 'IT',
+                'slug' => 'it',
+                'description' => 'Kategori seputar teknologi informasi.',
             ],
             [
                 'name' => 'Business',
                 'slug' => 'business',
-                'description' => 'Kursus seputar manajemen, startup, dan strategi bisnis.',
+                'description' => 'Kategori seputar bisnis, manajemen, dan kewirausahaan.',
+            ],
+            [
+                'name' => 'Design',
+                'slug' => 'design',
+                'description' => 'Kategori seputar UI, UX, dan desain grafis.',
             ],
         ];
 

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class,
             CourseCategoriesSeeder::class,
+            CourseSubcategoriesSeeder::class,
         ]);
 
         Course::factory()->count(10)->create();
