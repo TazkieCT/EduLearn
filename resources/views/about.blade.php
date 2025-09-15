@@ -51,7 +51,7 @@
                     Whether you’re here to study, upskill, or discover something new, 
                     this is the place to begin your journey.
                 </p>
-                <a href="#" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
+                <a href="{{ route('dashboard') }}" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
                     Start Learning
                 </a>
             </section>
