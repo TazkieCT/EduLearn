@@ -48,7 +48,7 @@
                 <h2 class="text-3xl font-bold mb-4">Start Your Learning Journey</h2>
                 <p class="mb-6 max-w-xl mx-auto">
                     Unlock new skills, explore fresh ideas, and grow at your own pace. 
-                    Whether you’re here to study, upskill, or discover something new, 
+                    Whether you're here to study, upskill, or discover something new, 
                     this is the place to begin your journey.
                 </p>
                 <a href="{{ route('dashboard') }}" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition">
